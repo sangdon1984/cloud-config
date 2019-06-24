@@ -1,0 +1,39 @@
+logging:
+   config: classpath:logback-${spring.profiles.active}.xml
+
+spring:
+  datasource:
+    hikari:
+      connection-test-query: SELECT 1
+      allow-pool-suspension: true
+    jpa:
+      database: mysql
+      database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+      generate-ddl: true
+      hibernate:
+        use-new-id-generator-mappings: false
+
+---
+spring:
+  profiles: dev
+  datasource:
+    hikari:
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      jdbc-url: jdbc:log4jdbc:mysql://localhost:3306/board4?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+      username: root
+      password: Whdms602!
+    thymeleaf:
+      cache: false
+    resources:
+      cache:
+        period: 0
+
+---
+spring:
+  profiles: production
+  datasource:
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://34.97.121.107:3306/board4?Unicode=true&characterEncoding=utf-8&serverTimezone=UTC
+      username: ysd
+      password: Whdms602!
