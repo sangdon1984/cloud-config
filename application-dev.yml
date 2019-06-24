@@ -24,13 +24,3 @@ spring:
     resources:
       cache:
         period: 0
-
----
-spring:
-  profiles: production
-  datasource:
-    hikari:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://34.97.121.107:3306/board4?Unicode=true&characterEncoding=utf-8&serverTimezone=UTC
-      username: ysd
-      password: Whdms602!
