@@ -1,16 +1,28 @@
 spring:
-  profiles: dev
   datasource:
     hikari:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://192.168.174.130:3306/board4?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
-      username: ysd
-      password: Whdms602!
       connection-test-query: SELECT 1
       allow-pool-suspension: true
-     thymeleaf:
+    jpa:
+      database: mysql
+      database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+      generate-ddl: true
+      hibernate:
+        use-new-id-generator-mappings: false
+
+---
+spring:
+  profiles: dev
+  datasource:
+      jdbc-url: jdbc:log4jdbc:mysql://192.168.174.130:3306/board4?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+      username: ysd
+      password: Whdms602!
+    thymeleaf:
+      connection-test-query: SELECT 1
+      allow-pool-suspension: true
+    thymeleaf:
       cache: false
-     resources:
+    resources:
       cache:
         period: 0
     jpa:
