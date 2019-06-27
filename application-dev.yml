@@ -14,7 +14,8 @@ spring:
 spring:
   profiles: dev
   datasource:
-      jdbc-url: jdbc:log4jdbc:mysql://192.168.174.130:3306/board4?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://192.168.174.130:3306/board4?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
       username: ysd
       password: Whdms602!
     thymeleaf:
